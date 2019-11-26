@@ -893,16 +893,6 @@ Update the `camunda.version` property in:
   * [qa/test-db-rolling-update/test-old-engine](https://github.com/camunda/camunda-bpm-platform/blob/master/qa/test-db-rolling-update/test-old-engine/pom.xml)
   * [ qa/test-old-engine/](https://github.com/camunda/camunda-bpm-platform/blob/master/qa/test-old-engine/pom.xml)
 
-
-Update test fixture:
-  * add ``qa/test-db-instance-migration/test-fixture-XX/pom.xml`` and replace ``XX`` with new version
-  * add the new module to [qa/test-db-instance-migration/pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/cb86cadd332cd97b486c9c8efe7420110000764c/qa/test-db-instance-migration/pom.xml):
-```diff
-     <module>test-fixture-712</module>
-+    <module>test-fixture-713</module>
-     <module>test-migration</module>
-```
-
 ### Add instance migration project
 
 When the new version is 7.x, a new instance migration project that performs upgrade logic from 7.(x-1) to 7.(x) has to be added. Perform the following steps:
