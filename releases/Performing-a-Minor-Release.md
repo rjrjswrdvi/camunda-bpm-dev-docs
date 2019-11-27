@@ -294,6 +294,37 @@ First a new branch needs to be created in the camunda-docs-manual repository
 git checkout -b 7.12
 ```
 
+### Update standalone webapp download links
+
+On the new branch, bump the version of the standalone webapps as follows:
+
+```diff
+--- a/content/installation/standalone-webapplication.md
++++ b/content/installation/standalone-webapplication.md
+@@ -42,24 +42,24 @@ As a **Community Edition** user you can download the Camunda standalone webapp m
+     <tr>
+       <td>Apache Tomcat</td>
+       <td>
+-        <a href="//camunda.org/release/camunda-bpm/tomcat/7.11/camunda-webapp-tomcat-standalone-7.11.0.war">
+-          camunda-webapp-tomcat-standalone-7.11.0.war
++        <a href="//camunda.org/release/camunda-bpm/tomcat/7.12/camunda-webapp-tomcat-standalone-7.12.0.war">
++          camunda-webapp-tomcat-standalone-7.12.0.war
+         </a>
+       </td>
+     </tr>
+     <tr>
+       <td>WildFly</td>
+       <td>
+-        <a href="//camunda.org/release/camunda-bpm/jboss/7.11/camunda-webapp-jboss-standalone-7.11.0.war">
+-          camunda-webapp-jboss-standalone-7.11.0.war
++        <a href="//camunda.org/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
++          camunda-webapp-jboss-standalone-7.12.0.war
+         </a>
+       </td>
+     </tr>
+...
+```
+
 ### Adjust config on branch
 
 On the new branch, adjust the configuration. Open the file `config.yaml` with an editor and edit it as follows:
@@ -789,7 +820,7 @@ https://cse.google.com/cse/setup/basic?cx=007121298374582869478:yaec0vxmc7e
 
 ## Release the Community Download Page
 
-> This page also needs to be updated: https://docs.camunda.org/manual/7.11/installation/standalone-webapplication/#download
+> Verify the standalone download links are updated: https://docs.camunda.org/manual/latest/installation/standalone-webapplication/#download
 
 Sources are here: https://github.com/camunda/camunda.com-new/live
 
