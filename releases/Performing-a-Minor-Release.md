@@ -93,7 +93,7 @@ This is done on the release day:
 
 ## Request the new license book
 
-Ask Ulrike to create the new license book. When received, put it to [`distro/license-book`](https://github.com/camunda/camunda-bpm-platform/tree/master/distro/license-book) folder.
+Ask Ulrike to create the new license book. When received, put it to [`distro/license-book`](https://github.com/camunda/camunda-bpm-platform/tree/master/distro/license-book) folder. Then update the nexus link to the license book in the [docs](https://docs.camunda.org/manual/develop/introduction/licenses/#third-party-libraries).
 
 ## Prepare test plan
 
