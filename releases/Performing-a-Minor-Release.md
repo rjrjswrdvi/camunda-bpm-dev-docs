@@ -67,7 +67,6 @@ This is done on the release day:
 
 - [ ] [Release Jira](#release-jira) (TL, EM)
 - [ ] [Forward Security Reports](#forward-security-reports) (TL, EM)
-- [ ] [Add new Version to Delivery Manager](#add-new-version-to-delivery-manager) (TL, QA, *)
 - [ ] [Release Maven Central](#release-maven-central) (*)
 - [ ] [Release Javadocs](#release-javadocs) (*)
 - [ ] [Release the Staged Docs](#release-the-staged-docs) (*)
@@ -672,10 +671,6 @@ Determine all security reports for which fixes have are released and forward the
 ```
 project = CAM AND fixVersion = <released version> AND type = "Security Report"
 ```
-
-## Add new Version to Delivery Manager
-
-Select the **Versions** tab on the [Delivery Manager](https://delivery-manager.camunda.com/delivery-manager/) dashboard. Add the latest version to the list of versions.
 
 ## Release Maven Central
 
