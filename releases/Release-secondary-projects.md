@@ -17,6 +17,17 @@ The following example is for camunda-spin project.
 ### Adjust platform version
 When releasing minor version of side project, we should always include the latest minor version of Camunda BPM available at this moment. For this, check the camunda.version property in pom.xml of corresponded project.
 
+### Adjust documentation
+Make sure that the documentation in the project's repository as well as the corresponding documentation parts in https://github.com/camunda/camunda-docs-manual/ refer to the new version.
+Examples for documentation that should be adjusted:
+* External Task Clients:
+  * https://github.com/camunda/camunda-docs-manual/blob/master/content/user-guide/ext-client/compatibility-matrix.md
+* Spring Boot Starter:
+  * https://github.com/camunda/camunda-docs-manual/blob/master/content/user-guide/spring-boot-integration/_index.md
+  * https://github.com/camunda/camunda-docs-manual/blob/master/content/user-guide/spring-boot-integration/version-compatibility.md
+* Assert:
+  * https://github.com/camunda/camunda-docs-manual/blob/master/content/user-guide/testing/_index.md#camunda-assertions
+
 ### Run the build job
 Example: last release 1.3.1, new release 1.4.0
 
