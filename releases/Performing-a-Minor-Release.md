@@ -497,7 +497,8 @@ git push origin master
 
 ### Adjust Redirects / URL rewrites
 
-Next we need to adjust the URL rewrites. Please note the examples are given with 7.11 release version and 7.12 next development. First for stage. Go into the repository `camunda-docs-static`:
+Next we need to adjust the URL rewrites. First for stage. Go into the repository `camunda-docs-static`. 
+Perform the following changes to release 7.12 (essentially bump `develop` to `7.13-SNAPSHOT`) :
 
 ```diff
 --- a/config/stage/.htaccess
@@ -506,9 +507,9 @@ Next we need to adjust the URL rewrites. Please note the examples are given with
  RewriteRule ^latest/api-references/java/ /manual/7.3/reference/javadoc/
 
  # Javadoc
--RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11-SNAPSHOT [R=307,L]
-+RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12-SNAPSHOT [R=307,L]
- RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
+-RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12-SNAPSHOT [R=307,L]
++RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13-SNAPSHOT [R=307,L]
+ RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
 ```
 
@@ -525,7 +526,7 @@ This is all that needs to be done for stage. For live we need to set the new ver
 git checkout -b 7.12
 ```
 
-Perform the following edits:
+Perform the following edits to release 7.12 (essentially you need to replace all the occurrences of the string `7.11` with `7.12` and bump `develop` to `7.13`) :
 
 ```diff
 --- a/config/live/.htaccess
@@ -535,24 +536,24 @@ Perform the following edits:
 
 
  # Javadoc
--RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L] # live doesn't have -SNAPSHOT
-+RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
- RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
+-RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
++RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13 [R=307,L] # live doesn't have -SNAPSHOT
+ RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
 
  # manual without version
 -RewriteRule ^manual/?$ /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/?$ /manual/7.12/ [R=307,L]
 
--RewriteCond %{REQUEST_URI} ^/manual((?!7.10/)[^/]+)
-+RewriteCond %{REQUEST_URI} ^/manual((?!7.11/)[^/]+)
+-RewriteCond %{REQUEST_URI} ^/manual((?!7.11/)[^/]+)
++RewriteCond %{REQUEST_URI} ^/manual((?!7.12/)[^/]+)
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteRule ^manual/(.*) /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/(.*) /manual/7.12/ [R=307,L]
 
-- # Redirect /manual/X to /manual/7.11/X if folder X does not exist but 7.10/X does
--RewriteCond %{REQUEST_URI} ^/manual/((?!7.10/)[^/]+)
-+ # Redirect /manual/X to /manual/7.12/X if folder X does not exist but 7.11/X does
+- # Redirect /manual/X to /manual/7.11/X if folder X does not exist but 7.11/X does
+-RewriteCond %{REQUEST_URI} ^/manual/((?!7.11/)[^/]+)
++ # Redirect /manual/X to /manual/7.12/X if folder X does not exist but 7.12/X does
 +RewriteCond %{REQUEST_URI} ^/manual/((?!7.12/)[^/]+)
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteCond %{DOCUMENT_ROOT}/manual/7.11/%1 -d
@@ -560,9 +561,9 @@ Perform the following edits:
 +RewriteCond %{DOCUMENT_ROOT}/manual/7.12/%1 -d
 +RewriteRule ^manual/(.*) /manual/7.12/$1 [R=307,L]
 
--# Redirect /manual/X/Y to /manual/7.11/Y if folder X does not exist but 7.10/Y does
+-# Redirect /manual/X/Y to /manual/7.11/Y if folder X does not exist but 7.11/Y does
 -RewriteCond %{REQUEST_URI} ^/manual/((?!7.11/?)[^/]+)(/[^/]+)?
-+# Redirect /manual/X/Y to /manual/7.12/Y if folder X does not exist but 7.11/Y does
++# Redirect /manual/X/Y to /manual/7.12/Y if folder X does not exist but 7.12/Y does
 +RewriteCond %{REQUEST_URI} ^/manual/((?!7.12/?)[^/]+)(/[^/]+)?
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteCond %{DOCUMENT_ROOT}/manual/7.11%2 -d
@@ -580,11 +581,9 @@ git push origin 7.12
 
 Merge this branch into master on the release day.
 
-Hint: Essentially, you need to replace all the occurrences of the string `7.11` with `7.12`.
-
 #### Update the documentation smoke tests
 
-We also need to [adjust the smoke tests](https://github.com/camunda/camunda-docs-static/blob/master/test/HttpRedirectionTest.yml) for the URL rewrites that we adjusted before. Please note the examples are given with 7.11 release version and 7.12 next development.
+We also need to [adjust the smoke tests](https://github.com/camunda/camunda-docs-static/blob/master/test/HttpRedirectionTest.yml) for the URL rewrites that we adjusted before. As with the rewrite rules before, you basically need to replace all the occurrences of `7.11` with `7.12`.
 
 ```diff
 --- a/test/HttpRedirectionTest.yml
@@ -610,8 +609,6 @@ Commit the changes to the release branch and merge this branch into master on th
 git commit -am "chore(release): update smoke tests to version 7.12"
 git push origin 7.12
 ```
-
-Hint: As mentioned before, you need to replace all the occurrences of the string `7.11` with `7.12`.
 
 ## Stage Enterprise Download Page
 
