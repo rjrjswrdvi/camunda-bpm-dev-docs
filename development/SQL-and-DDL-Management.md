@@ -14,6 +14,13 @@ The `create` and `drop` scripts contain all necessary logic to create the requir
 
 All `create` scripts must update the `ACT_GE_SCHEMA_LOG` table by adding a new entry. `insert into ACT_GE_SCHEMA_LOG values ('0', CURRENT_TIMESTAMP, '<schema-version>');` Replace `<schema-version>` with the current version of the engine.
 
+### Schema version in maintenance branches
+
+When backporting SQL patch scripts, make sure to update the 
+`insert into ACT_GE_SCHEMA_LOG values ('0', CURRENT_TIMESTAMP, '<schema-version>');` statement by 
+replacing `<schema-version>` with the target patch version of the engine. (e.g. if the current
+snapshot version is at `7.12.1-SNAPSHOT`, then `7.12.1` is the `<schema-version>` value).
+
 ## Naming
 The naming convention for creating a `create`/`drop` script is:
 
@@ -89,7 +96,9 @@ To create a patch level script, follow these guidelines:
 
 1. Identify which database and Camunda BPM patch versions are affected.
 
-2. Following the [naming rule](ref:#sql-scripts-patch-sql-scripts-naming-convention)
+2. Update the schema version in the create scripts (described [here](#schema-version-in-maintenance-branches)).
+
+3. Following the [naming rule](ref:#sql-scripts-patch-sql-scripts-naming-convention)
     1. Create the corresponding patch scripts with the fix for each affected minor version branch. Start by creating them on `master` in the `upgrade`-folder of the distribution located [here].
 If `master` is affected too, the patch for it will be done in the `create` and `drop` scripts only. Because it is not yet released, database changes are not done in a patch script.
     2. Add the fix to the `create` and `drop` scripts of each affected database on each minor version branch, except `master` where it is already done through the `create` scripts.
@@ -97,7 +106,7 @@ If `master` is affected too, the patch for it will be done in the `create` and `
 E.g., on `master`, all patch scripts are available. On `7.2`, only patch scripts affecting `7.2` and lower minor versions are available, i.e., `7.1` and `7.0`. On `7.1`, only patch scripts regarding `7.1` and lower are available.
     4. For each `patch` script it is necessary to update the table `ACT_GE_SCHEMA_LOG` by adding a new entry. `insert into ACT_GE_SCHEMA_LOG values ('<next-id>', CURRENT_TIMESTAMP, '<target-schema-version>');` Replace `<next-id>` with the id of the last entry incremented by 1. Also replace `<target-schema-version>` with the target version of the `upgrade` script.
 
-3. To get the testing right, some modifications must be done to the `patch-new-schema` section of the `sql-maven-plugin` and the `generate-test-resources` phase configuration of the `maven-antrun-plugin` in the [database upgrade] and [instance migration] tests.
+4. To get the testing right, some modifications must be done to the `patch-new-schema` section of the `sql-maven-plugin` and the `generate-test-resources` phase configuration of the `maven-antrun-plugin` in the [database upgrade] and [instance migration] tests.
     1. Regarding the `maven-antrun-plugin`, it is necessary to add a `touch` command for the patch script of the branch you are currently working on. This action generates a `dummy` patch file during testing for databases where no patch is required.
     2. The `sql-maven-plugin` is responsible for creating the old schema of the previous minor version, patching the old schema, upgrading to the new minor version, patching the new minor version and finally dropping the schema after the tests.
 **BUT** you only have to do a manual modification if the bug is not also
@@ -106,7 +115,7 @@ minor version it is automatically applied in the `patch-old-schema` execution
 of the `pom.xml`. If this is not the case you have to add it manually to the
 `patch-new-schema` execution of the `pom.xml`.
 
-4. Document the new patch level scripts by adding them to the list of [available SQL Patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) in the migration guide.
+5. Document the new patch level scripts by adding them to the list of [available SQL Patch scripts](ref:/guides/migration-guide/#patch-level-upgrade-upgrade-your-database-available-sql-patch-scripts) in the migration guide.
 Describe for each patch script file: Affected Camunda BPM minor version, the full name of the patch file, a description what it fixes, the affected databases and a link to the concrete CAM issue in our issue tracker.
 If the **same** fix is in multiple patch scripts, e.g., on different branches, then also **mention** those patch scripts. This is **important**, so the users know that they may have already applied the fix through another patch script from a previous minor version branch.
 
