@@ -1,8 +1,15 @@
 # Merging Repositories
 
-Some helpful `git` commands to help you with merging a whole repository, or just a subfolder, into another repository. You can execute the first part of the commands as a `bash` script and do the actual merge manually since a commit message will need to be provided.
+Some helpful `git` commands to help you with merging a whole repository, or just a subfolder, into 
+another repository. You can execute the first part of the commands as a `bash` script and do the 
+actual merge manually since a commit message will need to be provided.
 
-## Merge a subfolder of repository A into a subfolder of repository B
+Git recommends not to use `git-filter-branch` anymore, as it is error-prone and full of 'gotchas
+generating mangled history rewrites'. It recommends to use an alternative filtering tool such as
+[git filter-repo](https://github.com/newren/git-filter-repo/) instead. The `git` commands below use
+the `git filter-repo` command.
+
+## Merge a subdirectory of repository A into a subdirectory of repository B
 
 ```bash
 #!/bin/bash
@@ -10,14 +17,18 @@ Some helpful `git` commands to help you with merging a whole repository, or just
 # GitHub username
 username='camunda'
 
-# repo to be merged
+# repo to merge from
 repoA='camunda-commons'
 
 # repo to merge in
 repoB='camunda-bpm-platform'
 
-# new directory name of repo A in repo B directory structure
+# the name of the repo A directory that we want to merge in repo B 
 dirName='typed-values'
+
+# new directory name of repo A in repo B directory structure
+# it will additionally be used as a prefix for the repo A tags that will get merged
+newDirName='engine-dmn'
 
 # merge branch for repo A
 mergeBranch='to-be-merged'
@@ -36,17 +47,7 @@ cd $repoA
 git checkout -b $mergeBranch
 
 # Filter out and keep all the commits related to $dirName 
-git filter-branch --prune-empty --tag-name-filter cat --subdirectory-filter $dirName $mergeBranch --all
-
-# The previous step will remove the actual directory to be kept. 
-# To bring it back, or rename it, we need to run the following command. It will also preserve and update the tags
-git filter-branch -f --tag-name-filter cat --tree-filter 'mkdir -p $dirName; mv -t $dirName * .* || true'
-
-# (Optional) Clean up the repository
-git reset --hard
-git gc --aggressive
-git prune
-git clean -df
+git filter-repo --path $dirName --to-subdirectory-filter $newDirName --tag-rename '':'$newDirName-'
 
 # move to the repository to merge to
 cd ../$repoB
@@ -65,7 +66,7 @@ git pull --allow-unrelated-histories $remoteName $mergeBranch
 git log --oneline --graph
 ```
 
-## Merge a whole repository A in a subfolder of repository B
+## Merge a whole repository A in a subdirectory of repository B
 
 ```bash
 #!/bin/bash
@@ -80,6 +81,7 @@ repoA='camunda-engine-dmn'
 repoB='camunda-bpm-platform'
 
 # new directory name of repo A in repo B directory structure
+# it will additionally be used as a prefix for the repo A tags that will get merged
 newDirName='engine-dmn'
 
 # merge branch for repo A
@@ -98,9 +100,9 @@ cd $repoA
 # create a merge branch
 git checkout -b $mergeBranch
 
-# Rewrite commits of repo A such that all changes are applied in the desired subfolder. 
-# During the rewrite, git will complain that it cannot move a directory to a subdirectory of itself, you can ignore this.
-git filter-branch --tag-name-filter cat --tree-filter 'mkdir -p $dirName; mv -t $dirName * .* || true'
+# Rewrite commits of repo A such that all changes are applied in the desired subfolder.
+# All the toplevel files/directories need to be listed with a separate --path argument
+git filter-repo [--path FILE_OR_DIR_NAME] --to-subdirectory-filter $newDirName --tag-rename '':'$newDirName-'
 
 # move to repo B
 cd ../$repoB
