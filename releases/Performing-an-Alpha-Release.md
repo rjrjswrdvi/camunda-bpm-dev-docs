@@ -339,7 +339,7 @@ In `camunda-docs-static`, edit the redirects
 @@ -12,7 +12,7 @@ RewriteRule ^latest/api-references/java/ /manual/7.3/reference/javadoc/
 
  # Javadoc
- RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
+ RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12-SNAPSHOT [R=307,L]
 -RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
 +RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]

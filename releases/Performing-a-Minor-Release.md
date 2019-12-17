@@ -536,8 +536,8 @@ Perform the following edits to release 7.13 (essentially you need to replace all
 
 
  # Javadoc
--RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13 [R=307,L] # live doesn't have -SNAPSHOT
-+RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.14 [R=307,L] # live doesn't have -SNAPSHOT
+-RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13-SNAPSHOT [R=307,L]
++RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.14-SNAPSHOT [R=307,L]
  RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
 
