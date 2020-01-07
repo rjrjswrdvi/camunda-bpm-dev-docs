@@ -14,7 +14,7 @@ MKT = marketing@camunda.com
 
 SUP = team-support@camunda.com
 
-SRE = sre@camunda.com
+INFRA= infra@camunda.com
 
 Release Manager:
 
@@ -36,7 +36,7 @@ The release procedure itself has 4 phases:
 These tasks can be done within the two weeks before the release:
 
 - [ ] [Request the new license book from Ulrike](#request-the-new-license-book) (EM)
-- [ ] [Prepare testing plan](#prepare-test-plan) (* + QA + SRE)
+- [ ] [Prepare testing plan](#prepare-test-plan) (* + QA + INFRA)
 - [ ] [Build a Release Candidate](#build-a-release-candidate) (*)
 - [ ] [Test standalone webapps](#test-standalone-webapps) (*)
 - [ ] [Adjust and migrate Getting Started guides](#adjust-and-migrate-getting-started-guides) (*)
@@ -56,7 +56,7 @@ These steps can be done a couple of days before the release:
 - [ ] [Trigger the release build](#trigger-the-release-build) (*)
 - [ ] [Test Release](#test-release) (* + QA)
 - [ ] [Stage new version of the docs](#stage-new-version-of-the-docs) (*)
-- [ ] [Create docs stage and release jobs for new branch](#create-docs-stage-and-release-jobs-for-new-branch) (SRE)
+- [ ] [Create docs stage and release jobs for new branch](#create-docs-stage-and-release-jobs-for-new-branch) (INFRA)
 - [ ] [Adjust docs with new version](#adjust-docs-with-new-version) (*)
 - [ ] [Stage Enterprise Download Page](#stage-enterprise-download-page) (*, QA)
 - [ ] [Stage Community Download Page](#stage-community-download-page) (*)
@@ -84,7 +84,7 @@ This is done on the release day:
 ## [Phase 4: After the Release](#phase-4)
 
 - [ ] [Camunda BPM Platform code changes](#camunda-bpm-platform-code-changes) (*)
-- [ ] [Camunda CI tasks](#ci-tasks) (SRE)
+- [ ] [Camunda CI tasks](#ci-tasks) (INFRA)
 
 ***
 
@@ -103,7 +103,7 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
   * The spreadsheet should include an estimated effort (small, medium, large) and all test cases should be divided equally to all team members, e.g. by using round-robin on the different effort levels respecting that the implementer and reviewer should not test again
   * The spreadsheet should include all combinations of environments that should be testetd. Those environments should also be assigned to topics as recommended environments (consider those in the assignment of the topics to testers as well, so that testers have a reasonable amount of environments to set up for their topics).
 3. Check if there are any new supported environments (ex. new Database Versions) and if they are available for testing through [Portainer](https://hq2.camunda.com/portainer/#/templates/).
-  * If there is an environment missing, ask SRE to provide it.
+  * If there is an environment missing, ask INFRA to provide it.
 4. Validate the assumptions for the test plan with the development team (are the effort estimations correct, are testers fine with their assigned topics, are all necessary features included). This can be done in a separate meeting or by individual feedback.
 
 ## Build a Release Candidate
@@ -137,7 +137,7 @@ from our nexus:
 The versions to use can be found in the current [parent
 pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/master/parent/pom.xml#L31-L37).
 
-To test websphere and weblogic I would suggest to ask SRE to spin up a docker image in the HQ for testing. An
+To test websphere and weblogic I would suggest to ask INFRA to spin up a docker image in the HQ for testing. An
 alternative would be the developer VM.
 
 To deploy the standalone webapp follow the [installation
@@ -386,7 +386,7 @@ git push origin 7.13
 
 ## Create docs stage and release jobs for new branch
 
-Ask SRE to perform the following:
+Ask INFRA to perform the following:
 
 Clone the camunda-ci/jenkins-job-dsl-seed-jobs repository and go into it.
 
@@ -951,5 +951,5 @@ See this [commit](https://github.com/camunda/camunda-bpm-platform/commit/df0df16
 
 ## CI tasks
 
-Create an issue for SRE to provide support for the new minor version. Following [steps](https://github.com/camunda-ci/jenkins-job-dsl-seed-jobs/blob/master/docs/NewCamBPMVersion.md) have to be completed.
+Create an issue for INFRA to provide support for the new minor version. Following [steps](https://github.com/camunda-ci/jenkins-job-dsl-seed-jobs/blob/master/docs/NewCamBPMVersion.md) have to be completed.
   * A new (7.X) branch needs to be created on the maintenance repo through the https://release.cambpm.camunda.cloud/job/maintenance/job/RELEASE-create-camunda-bpm-maintenance-branch/ job

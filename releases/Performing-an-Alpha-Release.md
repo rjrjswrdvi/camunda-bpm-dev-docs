@@ -61,7 +61,7 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 
 ## **Build release**
 > 🕗  as the duration of the build lasts at least two hours, make sure to trigger it early in the morning after the code freeze and keep in mind that it might fail. Make sure you have no other appointments on the day of the release.
-> Audience: camundabpm@camunda.com, sre@camunda.com
+> Audience: camundabpm@camunda.com, infra@camunda.com
 
 ## **Celebrate release**
 > Please see [Celebrate The Release](#present-and-celebrate-the-release).
@@ -443,7 +443,7 @@ Your push will trigger automatically a Jenkins job here:
 https://app.camunda.com/jenkins/view/All/job/camunda.com-new%20(live)/
 If everything is ok with it, you check your change under downloads page.
 
-In case you don't have permissions for this repository please ask SRE for help.
+In case you don't have permissions for this repository please ask INFRA for help.
 
 # Check Docker Images
 
