@@ -12,3 +12,10 @@ The max length of an identifier differs between dbs:
 ### MySql/MariaDB
 
 If a column of type `TIMESTAMP` is created without any constraint or with constraint `NOT NULL`, when an update statement is executed against the containing table, the value of this column's fields is automatically updated with the current timestamp. To prevent this, columns that need timestamp values should use the `DATETIME` type.
+
+### Oracle
+
+People can configure their Oracle DB (starting from 19c) to drop manually created indexes if unused:
+> You can use the AUTO_INDEX_RETENTION_FOR_MANUAL configuration setting to specify a period for retaining unused non-auto indexes (manually created indexes) in a database. The unused non-auto indexes are deleted after the specified retention period.
+
+Docs: https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-indexes.html#GUID-A8B4BB05-2711-497A-8276-127076DAA518
