@@ -309,7 +309,7 @@ git commit -a -m "chore(release): release master as latest"
 
 #### 5. Force push to latest
 ```
-git push -f origin latest
+git push --force-with-lease origin latest --tags
 ```
 
 #### 6. Release Stage
