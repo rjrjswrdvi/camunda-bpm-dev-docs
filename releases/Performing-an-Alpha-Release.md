@@ -398,7 +398,7 @@ Make sure that you have set the right minor version within the query. (e.g. 7.9.
 5. Select the version you would like to release.
 6. Click on "Next".
 7. Click on "Confirm".
-8. After the completion of the bulk operation, click on "Acknowledge".
+8. After the completion of the bulk operation, click on "Ok, got it".
 
 To add the release version to the respective "affectedVersion" field of all the issues which won't be included in the release, use the following query in the search box:
 
