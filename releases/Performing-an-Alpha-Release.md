@@ -380,7 +380,7 @@ Make sure that you have set the right minor version within all the links. (e.g. 
 
 adjust the version in the URL, e.g. 7.9 or 7.12
 # Release JIRA
-The goal for releasing the JIRA is to add the version you would like to release to issues which have already been closed as well as bug report issues which won't be included in the release because its status is **not closed**. To achieve this, please make sure that the alpha version you would like to release [already exists](https://app.camunda.com/jira/browse/CAM/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel). If not, ask Michael, Roman or Thorben to create this alpha version in JIRA.
+The goal for releasing the JIRA is to add the version you would like to release to issues which have already been closed. To achieve this, please make sure that the alpha version you would like to release [already exists](https://app.camunda.com/jira/browse/CAM/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel). If not, ask Michael, Roman or Thorben to create this alpha version in JIRA.
 
 To add the release version to the respective "fixVersion" field of all issues which have already been closed, go to the [issues page](https://app.camunda.com/jira/issues) and make sure that the advanced search is enabled.
 
@@ -399,15 +399,6 @@ Make sure that you have set the right minor version within the query. (e.g. 7.9.
 6. Click on "Next".
 7. Click on "Confirm".
 8. After the completion of the bulk operation, click on "Ok, got it".
-
-To add the release version to the respective "affectedVersion" field of all the issues which won't be included in the release, use the following query in the search box:
-
-```
-project = CAM AND fixVersion = <minor-version> AND type = "Bug Report" AND status = open
-```
-Make sure that you have set the right minor version within the query. (e.g. 7.9.0, 7.12.0)
-
-The further steps are the same as already mentioned.
 
 If you have any questions feel free to approach Thorben. If Thorben is not available, you can ask Michael and/or Roman.
 
