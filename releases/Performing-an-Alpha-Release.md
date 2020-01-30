@@ -25,6 +25,7 @@ Steps:
 - [ ] [Forum Announcement](#forum) (*)
 - [ ] [Improve this guide](#improve-this-guide) (*)
 - [ ] [Celebrate the release](#present-and-celebrate-the-release) (*)
+- [ ] [Pick Next Release Manager](#pick-next-release-manager) (*)
 
 Steps marked with (*) are to be performed by the "Release Manager".
 MS = Michael Schöttes
@@ -562,3 +563,7 @@ In the afternoon, present the release remotely via Zoom. If you like you can mod
 * post the blog post till then
 * talk **before** with the people who should present the new features
 * ask those people to set up demos on their machines that they can share on screen
+
+# Pick Next Release Manager
+
+The Release Manager Rotation is Round-Robin based on the [Community Worker Rotation](https://app.camunda.com/confluence/display/camBPM/Community+Worker+Process#CommunityWorkerProcess-CommunityWorkerRotation:).
