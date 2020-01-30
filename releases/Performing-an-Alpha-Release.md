@@ -412,7 +412,7 @@ project = CAM AND fixVersion = <release-version> AND type = "Security Report"
 
 # Update the Community Download Page
 
-You need to provide the release nodes for the current version. You can find them in Jira:
+You need to provide the release notes for the current version. You can find them in Jira:
 
 https://app.camunda.com/jira/secure/BrowseProject.jspa/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel
 
@@ -424,7 +424,7 @@ Note: "showAlpha": true when releasing alpha
 
 Or you can push directly on live (keep in mind that everyone can see it after that). You need to update the following file:
 https://github.com/camunda/camunda.com-new/blob/live/data/releases.json
-(Similar to this [commit](https://github.com/camunda/camunda.com-new/commit/f5fd96375a38f34d521a0f4278233be47e5aaca1))
+(Similar to this [commit](https://github.com/camunda/camunda.com-new/blob/2517b2202b8ff9d5d33f5ef45c7ccc8e567a0ec8/data/releases.json#L18-L26))
 
 Your push will trigger automatically a Jenkins job here:
 https://app.camunda.com/jenkins/view/All/job/camunda.com-new%20(live)/
