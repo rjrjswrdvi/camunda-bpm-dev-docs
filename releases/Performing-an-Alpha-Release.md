@@ -380,6 +380,7 @@ Now the new javadocs are available here: ``https://docs.camunda.org/javadoc/camu
 Make sure that you have set the right minor version within all the links. (e.g. 7.9, 7.12)
 
 adjust the version in the URL, e.g. 7.9 or 7.12
+
 # Release JIRA
 The goal for releasing the JIRA is to add the version you would like to release to issues which have already been closed. To achieve this, please make sure that the alpha version you would like to release [already exists](https://app.camunda.com/jira/browse/CAM/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel). If not, ask Michael, Roman or Thorben to create this alpha version in JIRA.
 
@@ -393,13 +394,23 @@ project = CAM AND fixVersion = <minor-version> AND fixVersion != <release-versio
 Make sure that you have set the right minor version within the query. (e.g. 7.9.0, 7.12.0)
 
 1. Click on "Tools -> all .. issue(s)".
-2. Select all issues and click on "Next".
-3. Select "Edit Issues" and click on "Next".
-4. Select "Change Fix Version/s" and make sure that "Add to existing" is selected in the dropdown.
-5. Select the version you would like to release.
-6. Click on "Next".
-7. Click on "Confirm".
-8. After the completion of the bulk operation, click on "Ok, got it".
+1. Select all issues and click on "Next".
+1. Select "Edit Issues" and click on "Next".
+1. Select "Change Fix Version/s" and make sure that "Add to existing" is selected in the dropdown.
+1. Select the version you would like to release.
+1. Make sure that "Send mail for this update" is unchecked (bottom of the page).
+1. Click on "Next".
+1. Click on "Confirm".
+1. After the completion of the bulk operation, click on "Ok, got it".
+
+Put the following query in the search box of the [issues page](https://app.camunda.com/jira/issues):
+```
+project = CAM AND fixVersion = <release-version>
+```
+Perform a sanity check of the released issues by making sure that the `Fix Version/s` only includes the 
+* current alpha version (e.g. 7.13.0-alpha2)
+* the current minor version (e.g. 7.13.0)
+* backport versions (optional, e.g. 7.12.3, 7.11.9)
 
 If you have any questions feel free to approach Thorben. If Thorben is not available, you can ask Michael and/or Roman.
 
