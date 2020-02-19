@@ -13,6 +13,7 @@ The release procedure has 2 phases:
 - [ ] [Test the Release Build](#test-the-release-build)
 - [ ] [Unblock the Branch](#unblock-the-branch)
 - [ ] [Release Javadocs](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-javadocs)
+- [ ] [Check the Docker Images](check-the-docker-images)
 
 ## Phase 2: Publish the Release
 
@@ -87,13 +88,6 @@ git push origin master
 
 Review your commit on http://stage.docs.camunda.org/enterprise/download/
 
-## Check the Docker Images
-Verify that the docker images CE and EE are built.
-
-CE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ce/
-
-EE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ee/
-
 ## Test the Release Build
 
 For each application server one developer should perform a test. Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
@@ -144,6 +138,14 @@ Hi Team,
 the release test passed, you can commit the 7.7 branch again :)
 
 ```
+
+## Release Javadocs
+Follow https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-javadocs
+
+## Check the Docker Images
+Verify that the docker images CE and EE are built.
+
+EE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ee/ (Example, adjust the version accordingly.)
 
 ## Release the Patch Version in JIRA
 
