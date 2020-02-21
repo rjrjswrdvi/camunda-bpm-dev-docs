@@ -44,6 +44,7 @@ These tasks can be done within the two weeks before the release:
 - [ ] [Adjust and migrate unit testing template](#adjust-and-migrate-unit-testing-template) (*)
 - [ ] [Write Update Guide](#write-update-guide) (*)
 - [ ] [Stage a Blogpost](#stage-the-blog-post) (*)
+- [ ] [Update translations](#update-german-webapp-translations) (*)
 - [ ] [Release all secondary Camunda projects](#release-all-secondary-camunda-projects) (*)
 - [ ] [Update the Entity Relationship Diagrams](#update-the-entity-relationship-diagrams) (*)
 - [ ] Schedule the releases of side projects: [Spring Boot Starter](https://github.com/camunda/camunda-bpm-spring-boot-starter/wiki/Minor-release), [Wildfly Swarm](https://github.com/camunda/camunda-bpm-wildfly-swarm), [JS External Task Client](https://github.com/camunda/camunda-external-task-client-js/wiki/Release-procedure), [Java External Task Client](https://github.com/camunda/camunda-external-task-client-java), [Camunda BPM Assert](https://github.com/camunda/camunda-bpm-assert)
@@ -221,6 +222,9 @@ git push origin 7.13.0
 ```
 
 #### 3. Ask TL to write the blog post.
+
+## Update german Webapp translations
+Ask a native-german colleague to update the [german translations](https://github.com/camunda/camunda-webapp-translations).
 
 ## Release all secondary Camunda projects
 
@@ -497,7 +501,7 @@ git push origin master
 
 ### Adjust Redirects / URL rewrites
 
-Next we need to adjust the URL rewrites. First for stage. Go into the repository `camunda-docs-static`. 
+Next we need to adjust the URL rewrites. First for stage. Go into the repository `camunda-docs-static`.
 Perform the following changes to release 7.13 (essentially bump `develop` to `7.14-SNAPSHOT`) :
 
 ```diff
