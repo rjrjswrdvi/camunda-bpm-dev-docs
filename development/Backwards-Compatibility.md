@@ -92,6 +92,10 @@ Disadvantages:
 
 From one version to the next, the behavior of an API method must not change. In other words: If I call an API method `ApiService#foo` with parameters `a` and `b` (i.e. `ApiService.foo(a, b)`), then it has the same side effects and return value on all Camunda versions in which it exists.
 
+Noteworthy cases:
+
+* Validation of BPMN, CMMN and DMN XML: The parsers must not become stricter in validation from one version to the next. This creates the potential that users deployed models with older Camunda versions that fail to be parsed with a newer version and is very hard to recover from. Instead of throwing exceptions/raising errors in these cases, an alternative is to emit a warning that does not let the parsing fail.
+
 Exceptions:
 
 * The old behavior is a bug in any usage scenario.
