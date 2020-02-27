@@ -169,7 +169,8 @@ git push origin master
 
 # Test Release
 
-For each application server one developer should perform a test. Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
+For each application server one developer should perform a test. Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280).
+Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
 
 ### Standard Regression Test
 1. Download the release artifact from the enterprise download page
