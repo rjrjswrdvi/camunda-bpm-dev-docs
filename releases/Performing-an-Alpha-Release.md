@@ -20,8 +20,7 @@ Steps:
 - [ ] [Check Docker Images](#check-docker-images) (*)
 - [ ] [Release the blogpost](#release-the-blogpost) (TL, *)
 - [ ] [Publish the Enterprise Page](#publish-the-enterprise-page) (*)
-- [ ] [Inform EE Customers (Mailchimp)](#inform-ee-customer-mailchimp) (RS, MS, TL)
-- [ ] [Social Media Announcements](#social-media-announcements) (*, CM)
+- [ ] [Send Release Notice](#send-release-notice) (*)
 - [ ] [Forum Announcement](#forum) (*)
 - [ ] [Improve this guide](#improve-this-guide) (*)
 - [ ] [Celebrate the release](#present-and-celebrate-the-release) (*)
@@ -502,44 +501,33 @@ git merge 7.9.0-alpha3
 Release the Enterprise documentation by triggering the following build:
 https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(enterprise)/
 
-# Inform EE Customer (Mailchimp)
+# Send Release Notice
 
-Let the Support Team know that a new release is available by sending the following email to team-support@camunda.com:
-
-```
-Hi Support Team,
-
-we have published a new alpha release of Camunda BPM:
-
-* The version is <release-version>
-* The link to the blogpost is <link-to-blog-post>
-* The link to the release notes is <link-to-release-notes>
-
-Cheers,
+Let everyone know that a new release is available by sending the following email to alle@camunda.com with CC to marketing@camunda.com and team-support@camunda.com:
 
 ```
+Hi everyone,
+ 
+we have released Camunda BPM <release-version> today. Find all the details below: 
+
+Blog Post: <link-to-blog-post>
+Release Presentation: <presentation-date, e.g. Feb 28, 2020 02:00 PM (Berlin time)>, Join the presentation on Zoom: <link-to-zoom-call>
+Release Notes: <link-to-release-notes> 
+Download: https://docs.camunda.org/enterprise/download/
+
+@marketing Please share this release on social media
+@Team-Support Please include this release in the next customer notification
+
+Best,
+The Runtime Team
+```
+
+Concerning the Support Team:
 
 You will receive a test email that needs to be approved.
-
 ⚠️ If you receive an Out of Office notification, you can ask Michael from QA to send the email.
 
-# Social Media Announcements
-
-Let marketing know that a new release is available by sending the following email to marketing@camunda.com:
-
-```
-Hi Marketing Team,
-
-we have published a new alpha release:
-
-* The version is <release-version>
-* The link to the blogpost is <link-to-blog-post>
-* The most noteworthy thing about this release is "Support for BPMN Conditional Events"
-* We propose to include the following image (XX Link)
-
-Cheers,
-XX
-```
+Concerning the Marketing Team:
 
 ⚠️ If you receive no answer or an Out of Office notification, you can directly approach Gottfried from Marketing.
 
