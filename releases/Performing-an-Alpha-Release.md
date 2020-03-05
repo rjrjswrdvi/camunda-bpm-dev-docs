@@ -129,8 +129,8 @@ Click Build.
 Wait for the following jobs to turn green before continuing with the next step (check e.g. [here](https://release.cambpm.camunda.cloud/view/Release-Master/builds)):
 
 
-* 7.9-RELEASE-build-camunda-bpm-tags
-* 7.9-RELEASE-build-EE-nightly-tags
+* 7.9-RELEASE-build-camunda-bpm-CE-tags
+* 7.9-RELEASE-build-camunda-bpm-EE-tags
 
 Please also check that there are no issues at the jenkins 'Release' build (see [here](https://hq2.camunda.com/broken)).
 

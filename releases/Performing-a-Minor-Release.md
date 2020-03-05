@@ -273,8 +273,8 @@ https://release.cambpm.camunda.cloud/view/Release-Master/
 Set correct versions, select Release Type = "Final" and click on the "Run" icon.
 
 Wait for the following jobs to turn green before continuing with the next step:
-* 7.X-RELEASE-build-camunda-bpm-tags
-* 7.X-RELEASE-build-EE-nightly-tags
+* 7.X-RELEASE-build-camunda-bpm-CE-tags
+* 7.X-RELEASE-build-camunda-bpm-EE-tags
 
 ## Test Release
 
