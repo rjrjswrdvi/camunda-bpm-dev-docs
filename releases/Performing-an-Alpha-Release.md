@@ -168,8 +168,25 @@ git push origin master
 
 # Test Release
 
-For each application server one developer should perform a test. Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280).
-Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
+For each container (including Spring Boot & Run) one developer should perform a test. Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
+
+## Preparations
+
+* Build & push the QA docker images
+  1. Make sure you have Docker installed on your machine
+  2. Run `docker login registry.camunda.com`. Enter your Camunda LDAP credentials here if not logged in already.
+  3. Clone https://github.com/camunda/camunda-bpm-platform-ee
+  4. Checkout the tag of the release version (e. g. 7.13.0-alpha2)\
+     **Heads-up:** Having `master` checked out leads to building the latest snapshot
+  5. Navigate to the folder `qa/docker` in the terminal
+  6. Run `mvn clean install`
+  7. When the command has been successfully completed, check if the images are available (login with your ldap credentials):
+     * https://registry.camunda.com/ui/?repository=weblogic12r1
+     * https://registry.camunda.com/ui/?repository=weblogic12r2
+     * https://registry.camunda.com/ui/?repository=websphere9
+  8. Promote the version of the Docker image in the [portainer templates repository](https://github.com/camunda-ci/portainer-templates). \
+     You can find an example commit here: https://github.com/camunda-ci/portainer-templates/commit/d94033
+* Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280)
 
 ### Standard Regression Test
 1. Download the release artifact from the enterprise download page
