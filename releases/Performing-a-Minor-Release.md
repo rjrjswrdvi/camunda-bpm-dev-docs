@@ -103,7 +103,7 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
   * The spreadsheet should include all the features that need to be tested, feature documentation and implementer name
   * The spreadsheet should include an estimated effort (small, medium, large) and all test cases should be divided equally to all team members, e.g. by using round-robin on the different effort levels respecting that the implementer and reviewer should not test again
   * The spreadsheet should include all combinations of environments that should be testetd. Those environments should also be assigned to topics as recommended environments (consider those in the assignment of the topics to testers as well, so that testers have a reasonable amount of environments to set up for their topics).
-3. Check if there are any new supported environments (ex. new Database Versions) and if they are available for testing through [Portainer](https://hq2.camunda.com/portainer/#/templates/).
+3. Check if there are any new supported environments (ex. new Database Versions) and if they are available for testing through [Portainer](http://portainer.camunda.loc:9000/).
   * If there is an environment missing, ask INFRA to provide it.
 4. Validate the assumptions for the test plan with the development team (are the effort estimations correct, are testers fine with their assigned topics, are all necessary features included). This can be done in a separate meeting or by individual feedback.
 
@@ -254,7 +254,7 @@ When releasing a secondary project, other secondary projects might have cross-re
 ## Check Preconditions
 
 - There are no Snapshot dependencies to secondary projects like Spin Connect (check [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) for snapshot dependencies)
-- There are no code problems ([check ci](https://hq2.camunda.com/broken) section "master")
+- There are no code problems ([check ci](https://broken.cambpm.camunda.cloud/) section "master")
 - [Release Test Job](https://release.cambpm.camunda.cloud/view/Release-Test/) passed successfully recently
 - There are no code tickets in review or test
 - Send an email to camundabpm@camunda.com:

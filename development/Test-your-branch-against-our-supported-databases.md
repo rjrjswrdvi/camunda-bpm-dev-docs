@@ -1,8 +1,11 @@
 How to do it:
 
-1. Go to the ['Test-Platform-Branch'](https://hq2.camunda.com/jenkins/ci/view/Test-Platform-Branch/) view on our HQ CI Jenkins
+1. Go to the ['Test-Platform-Branch'](https://ci.cambpm.camunda.cloud/view/Test-Platform-Branch/) view on our HQ CI Jenkins
 
-2. Start the ['7.7-platform-TEST-BRANCH-ON-ALL-DATABASES'](https://hq2.camunda.com/jenkins/ci/view/Test-Platform-Branch/job/7.7-platform-TEST-BRANCH-ON-ALL-DATABASES/) job at the top of the view. It asks you for the **branch or commit** to build. It will then trigger the **H2 build** first, which upon success will propagate to the actual databases like mysql etc. See [this dependency-graph](https://hq2.camunda.com/jenkins/ci/view/Test-Platform-Branch/job/7.7-platform-TEST-BRANCH-ON-ALL-DATABASES/depgraph-view/), when which database will be triggered.
+2. Start the ['7.7-platform-TEST-BRANCH-ON-ALL-DATABASES'](https://ci.cambpm.camunda.cloud/view/Test-Platform-Branch/job/sideprojects/job/7.13-platform-TEST-BRANCH-ON-ALL-DATABASES/) job at the top of the view.
+It asks you for the **branch or commit** to build.
+It will then trigger the **H2 build** first, which upon success will propagate to the actual databases like mysql etc.
+
 
 Hints:
 

@@ -97,7 +97,7 @@ Ask your colleagues to contribute content for any noteworthy features they have 
 # Check Preconditions
 
 - There are no Snapshot dependencies to secondary projects like Spin or Connect ([Release procedure](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Release-secondary-projects.md)). For that, check [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) for snapshot dependencies (All snapshot dependencies contain the word 'SNAPSHOT' in their name).
-- There are no code problems ([check ci](https://hq2.camunda.com/broken) section "Master" and "Release")
+- There are no code problems ([check ci](https://broken.cambpm.camunda.cloud/) section "Master" and "Release")
 - [Release Test Job](https://release.cambpm.camunda.cloud/view/Release-Test/) passed successfully recently
 - Send an email to camundabpm@camunda.com:
 ```
@@ -132,7 +132,7 @@ Wait for the following jobs to turn green before continuing with the next step (
 * 7.9-RELEASE-build-camunda-bpm-CE-tags
 * 7.9-RELEASE-build-camunda-bpm-EE-tags
 
-Please also check that there are no issues at the jenkins 'Release' build (see [here](https://hq2.camunda.com/broken)).
+Please also check that there are no issues at the jenkins 'Release' build (see [here](https://broken.cambpm.camunda.cloud/)).
 
 # Update the Enterprise Download Page
 
