@@ -120,9 +120,9 @@ Use the [Alpha Release Guide](https://github.com/camunda/camunda-bpm-dev-docs/bl
 ## Test standalone webapps
 
 You have to download the CE standalone webapps
-([`camunda-webapp-SERVER-standalone-VERSION.war`](https://camunda.org/release/camunda-bpm/))
+([`camunda-webapp-SERVER-standalone-VERSION.war`](https://downloads.camunda.cloud/release/camunda-bpm/))
 and the EE standalone webapps
-([`camunda-webapp-ee-SERVER-standalone-VERSION-ee.war`](https://camunda.org/enterprise-release/camunda-bpm/)).
+([`camunda-webapp-ee-SERVER-standalone-VERSION-ee.war`](https://downloads.camunda.cloud/enterprise-release/camunda-bpm/)).
 
 **Note:** There is no separate standalone webapp for wildfly, use the jboss one
 for testing.
@@ -308,9 +308,9 @@ On the new branch, bump the version of the standalone webapps as follows:
      <tr>
        <td>Apache Tomcat</td>
        <td>
--        <a href="//camunda.org/release/camunda-bpm/tomcat/7.12/camunda-webapp-tomcat-standalone-7.12.0.war">
+-        <a href="//downloads.camunda.cloud/release/camunda-bpm/tomcat/7.12/camunda-webapp-tomcat-standalone-7.12.0.war">
 -          camunda-webapp-tomcat-standalone-7.12.0.war
-+        <a href="//camunda.org/release/camunda-bpm/tomcat/7.13/camunda-webapp-tomcat-standalone-7.13.0.war">
++        <a href="//downloads.camunda.cloud/release/camunda-bpm/tomcat/7.13/camunda-webapp-tomcat-standalone-7.13.0.war">
 +          camunda-webapp-tomcat-standalone-7.13.0.war
          </a>
        </td>
@@ -318,9 +318,9 @@ On the new branch, bump the version of the standalone webapps as follows:
      <tr>
        <td>WildFly</td>
        <td>
--        <a href="//camunda.org/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
+-        <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/7.12/camunda-webapp-jboss-standalone-7.12.0.war">
 -          camunda-webapp-jboss-standalone-7.12.0.war
-+        <a href="//camunda.org/release/camunda-bpm/jboss/7.13/camunda-webapp-jboss-standalone-7.13.0.war">
++        <a href="//downloads.camunda.cloud/release/camunda-bpm/jboss/7.13/camunda-webapp-jboss-standalone-7.13.0.war">
 +          camunda-webapp-jboss-standalone-7.13.0.war
          </a>
        </td>
@@ -835,7 +835,7 @@ git push origin live
 
 ## Release the Blog Post
 
-1. Before you publish it ensure that the `camunda.org` [download page](https://camunda.org/download/) is up to date. Note: The title of the blogpost must be in the following format: Camunda 7.13.0 released.
+1. Before you publish it ensure that the `camunda.com` [download page](https://camunda.com/download/) is up to date. Note: The title of the blogpost must be in the following format: Camunda 7.13.0 released.
 2. Publish the blog post by merging the branch with the master:
 
 ```
