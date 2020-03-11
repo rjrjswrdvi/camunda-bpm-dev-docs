@@ -188,6 +188,19 @@ For each container (including Spring Boot & Run) one developer should perform a 
      You can find an example commit here: https://github.com/camunda-ci/portainer-templates/commit/d94033
 * Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280)
 
+## Conduct Testing
+
+1. Send an email to camundabpm@camunda.com asking the team to participate in manual testing:
+```
+Hey team,
+
+We are starting the release test for the current alpha. Please ask me to assign an environment to you. 
+
+Once you are done with testing, please inform me of the result and I will assign the next environment if necessary.
+```
+2. Assign combinations of application servers and databases to devs. Make sure the major servers and database are tested once. It is not necessary to test multiple combinations of those. For an alpha, the coverage of JDKs, browsers and operating systems is not so important, so this choice can be left to the devs conducting the test.
+3. Keep track environments and test results in the test plan sheet.
+
 ### Standard Regression Test
 1. Download the release artifact from the enterprise download page
 2. Combine the platform with a database of choice.
