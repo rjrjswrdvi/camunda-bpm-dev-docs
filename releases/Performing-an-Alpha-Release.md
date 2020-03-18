@@ -174,17 +174,19 @@ For each container (including Spring Boot & Run) one developer should perform a 
 
 * Build & push the QA docker images
   1. Make sure you have Docker installed on your machine
-  2. Run `docker login registry.camunda.com`. Enter your Camunda LDAP credentials here if not logged in already.
-  3. Clone https://github.com/camunda/camunda-bpm-platform-ee
-  4. Checkout the tag of the release version (e. g. 7.13.0-alpha2)\
+  2. Make sure to set up a VPN connection to the office network if you are working from home \
+     Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
+  3. Run `docker login registry.camunda.com`. Enter your Camunda LDAP credentials here if not logged in already.
+  4. Clone https://github.com/camunda/camunda-bpm-platform-ee
+  5. Checkout the tag of the release version (e. g. 7.13.0-alpha2)\
      **Heads-up:** Having `master` checked out leads to building the latest snapshot
-  5. Navigate to the folder `qa/docker` in the terminal
-  6. Run `mvn clean install`
-  7. When the command has been successfully completed, check if the images are available (login with your ldap credentials):
+  6. Navigate to the folder `qa/docker` in the terminal
+  7. Run `mvn clean install`
+  8. When the command has been successfully completed, check if the images are available (login with your ldap credentials):
      * https://registry.camunda.com/ui/?repository=weblogic12r1
      * https://registry.camunda.com/ui/?repository=weblogic12r2
      * https://registry.camunda.com/ui/?repository=websphere9
-  8. Promote the version of the Docker image in the [portainer templates repository](https://github.com/camunda-ci/portainer-templates). \
+  9. Promote the version of the Docker image in the [portainer templates repository](https://github.com/camunda-ci/portainer-templates). \
      You can find an example commit here: https://github.com/camunda-ci/portainer-templates/commit/d94033
 * Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280)
 
