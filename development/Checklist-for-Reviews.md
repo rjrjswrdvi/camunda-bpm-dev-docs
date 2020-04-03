@@ -19,6 +19,7 @@
   * Is the API potentially extensible for future use cases we can already anticipate? 
   * Does the API expose functionality that is not strictly necessary and that at the same time may be hard to maintain?
 * Is the changed API easy to use for the user?
+* If the code extends the Java API (e.g. adding a new parameter to a query, or a new property to a response), is this also added to the REST API?
 
 ### Backwards Compatibility
 * Is the API [backwards compatible](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/development/Backwards-Compatibility.md)?

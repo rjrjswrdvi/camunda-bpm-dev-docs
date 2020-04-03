@@ -86,6 +86,7 @@ return new MyClass() {
 
 * Within the same source file, the ordering of annotations should be consistent
 * Consider writing Javadoc for non-trivial code that you encounter. This can be new code or already existing code that you inspected for a current task.
+* When extending the Java API (e.g. adding a new parameter to a query, or a new property to a response), make sure to also reflect this in the REST API.
 
 ### Need exact proposal:
 
