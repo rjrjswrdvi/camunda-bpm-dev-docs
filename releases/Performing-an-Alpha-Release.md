@@ -172,22 +172,15 @@ For each container (including Spring Boot & Run) one developer should perform a 
 
 ## Preparations
 
-* Build & push the QA docker images
-  1. Make sure you have Docker installed on your machine
-  2. Make sure to set up a VPN connection to the office network if you are working from home \
-     Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
-  3. Run `docker login registry.camunda.cloud`. Enter your Camunda LDAP credentials here if not logged in already.
-  4. Clone https://github.com/camunda/camunda-bpm-platform-ee
-  5. Checkout the tag of the release version (e. g. 7.13.0-alpha2)\
-     **Heads-up:** Having `master` checked out leads to building the latest snapshot
-  6. Navigate to the folder `qa/docker` in the terminal
-  7. Run `mvn clean install`
-  8. When the command has been successfully completed, check if the images are available (login with your ldap credentials):
-     * https://registry.camunda.cloud/harbor/projects/6/repositories/team-cambpm%2Fweblogic12r1
-     * https://registry.camunda.cloud/harbor/projects/6/repositories/team-cambpm%2Fweblogic12r2
-     * https://registry.camunda.cloud/harbor/projects/6/repositories/team-cambpm%2Fwebsphere9
-  9. Promote the version of the Docker image in the [portainer templates repository](https://github.com/camunda-ci/portainer-templates). \
-     You can find an example commit here: https://github.com/camunda-ci/portainer-templates/commit/d94033
+* Make sure the Docker QA images are ready to use
+  1. Check if the Jenkins Job was executed successfully (if not retrigger it)
+     * You can find the job here: `https://ci.cambpm.camunda.cloud/view/all/job/<minor-version>/job/<minor-version>-platform-docker-qa/`
+     * If the job continues to fail, you could try to build & push the images locally from your machine. Please see the documentation about [Manually Build & Push the Docker QA Images](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/howtos/manually-build-docker-qa-images.md)
+  2. Promote the versions of the Docker images in the [Portainer Templates Repository](https://github.com/camunda-ci/portainer-templates).
+     * You can find an example commit here: https://github.com/camunda-ci/portainer-templates/commit/d94033
+  3. To confirm that everything works as expected, go to Portainer, run a container for each image, and check the "Stack Details". You should validate the right version is picked up, and the container is "runnable". Please see the following screenshot:\
+   ![Portainer Stack Details](https://raw.githubusercontent.com/camunda/camunda-bpm-dev-docs/master/howtos/img/manually-build-docker-qa-images-portainer-stack-details.png)
+     * The step requires a VPN connection. Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
 * Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280)
 
 ## Conduct Testing
