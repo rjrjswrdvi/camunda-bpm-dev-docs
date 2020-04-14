@@ -181,19 +181,26 @@ For each container (including Spring Boot & Run) one developer should perform a 
   3. To confirm that everything works as expected, go to Portainer, run a container for each image, and check the "Stack Details". You should validate the right version is picked up, and the container is "runnable". Please see the following screenshot:\
    ![Portainer Stack Details](https://raw.githubusercontent.com/camunda/camunda-bpm-dev-docs/master/howtos/img/manually-build-docker-qa-images-portainer-stack-details.png)
      * The step requires a VPN connection. Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
-* Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280)
+* Provide a test plan sheet as a copy from [the template](https://docs.google.com/spreadsheets/d/1K9xRFix6NFjnFJDVailOYPTkzJyQCA9yIrFcyFtC3KE/edit#gid=1656336280),
+make sure to prepare the server/database combinations to be tested before next step (Conduct Testing). Assign combinations of application servers and databases to devs. Make sure the major servers and database are tested once. It is not necessary to test multiple combinations of those.
+For an alpha, the coverage of JDKs, browsers and operating systems is not so important, so this choice can be left to the devs conducting the test.
 
 ## Conduct Testing
 
-1. Send an email to camundabpm@camunda.com asking the team to participate in manual testing:
+1. Send a message in Slack (or an email to camundabpm@camunda.com) asking the team to participate in manual testing:
 ```
 Hey team,
 
-We are starting the release test for the current alpha. Please ask me to assign an environment to you. 
+We are starting the release test for the current alpha. The server/database combination for testing are already defined in the test release sheet.
 
-Once you are done with testing, please inform me of the result and I will assign the next environment if necessary.
+Once you are done with testing, please inform me of the result in this thread and I will assign the next environment if necessary.
+
+You can download the distros here: http://stage.docs.camunda.org/enterprise/download/
+Here is the test release spreadsheet: <link>
+Perform the standard regression test: [Standard Regression Test](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#standard-regression-test)
+
 ```
-2. Assign combinations of application servers and databases to devs. Make sure the major servers and database are tested once. It is not necessary to test multiple combinations of those. For an alpha, the coverage of JDKs, browsers and operating systems is not so important, so this choice can be left to the devs conducting the test.
+2. Don't forget to make transparent how the communication between testers and you should happen to prevent confusion and miscommunication.
 3. Keep track environments and test results in the test plan sheet.
 
 ### Standard Regression Test
@@ -523,6 +530,7 @@ git merge 7.9.0-alpha3
 
 # Publish the Enterprise Page
 
+Check for unpublished commits (of other teams, e.g. Optimize) in [docs-static](https://github.com/camunda/camunda-docs-static/tree/master/enterprise), if there are some, sync with them if it is ok to publish the page.
 Release the Enterprise documentation by triggering the following build:
 https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(enterprise)/
 
