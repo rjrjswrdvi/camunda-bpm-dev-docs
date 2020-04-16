@@ -46,6 +46,7 @@
 * Is the feature well documented? For example:
   * [User Guide](https://docs.camunda.org/manual/latest/user-guide/)
   * [API reference](https://docs.camunda.org/manual/latest/reference/rest/)
+  * [OpenAPI documentation](https://github.com/camunda/camunda-bpm-platform/tree/master/engine-rest/engine-rest-openapi) (if the documentation exists for that resource)
   * Javadoc on public API
   * [Migration guide](https://docs.camunda.org/manual/latest/update/minor/) for database schema changes and API breaking changes
 
