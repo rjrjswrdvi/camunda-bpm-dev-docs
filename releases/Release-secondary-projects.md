@@ -47,7 +47,7 @@ Example: last release 1.3.1, new release 1.4.0
 * CAMBPM_VERSION: 7.x.y (the Camunda platform version against which the project will be built)
 * NEXT_CAMBPM_VERSION: 7.x.0-SNAPSHOT (the next development version of Camunda platform. That way the project will be tested against the latest changes from the platform after the release.)
 
-2. [Applies only for secondary projects] Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.0 version](https://github.com/camunda/camunda-bpm-platform/commit/cbf0f2e8d397b5df9a58d273d00f930705797787#diff-75a56b1fc9bfafc36e14133db750da8b)
+2. [Applies only for secondary projects] Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.0 version](https://github.com/camunda/camunda-bpm-platform/commit/cbf0f2e8d397b5df9a58d273d00f930705797787#diff-75a56b1fc9bfafc36e14133db750da8b) or [pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/9474d68b3e4b52ad97e86b4769c7fe256d3a5bb8/pom.xml#L27-L38) for platform >= 7.13.
 
 ### Test the build [for sideproject]
 Run the examples if there are any.
@@ -97,7 +97,7 @@ For sideprojects, a version adjustment must be performed, example: https://githu
 
 * CHANGE_CAMBPM_VERSION: false
 
-3. [secondary projects only] Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.1 version](https://github.com/camunda/camunda-bpm-platform/commit/282a79ec000216e22af07fb86442340ad7b891e2)
+3. [secondary projects only] Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file for <= platform 7.12 or [pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/9474d68b3e4b52ad97e86b4769c7fe256d3a5bb8/pom.xml#L27-L38) for 7.13+ with the new spin [1.4.1 version](https://github.com/camunda/camunda-bpm-platform/commit/282a79ec000216e22af07fb86442340ad7b891e2)
 4. Release Maven Central - We have several CI jobs which upload artifacts to Maven Central into their staging repository section. In order to make them publicly available, we need to manually close the staging repositories and release the artifacts.
     * Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Maven+Central+Release)
     * On the left side, click on the 'Staging Repositories' link.
