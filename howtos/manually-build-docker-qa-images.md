@@ -13,9 +13,10 @@ Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
 
 1. Run `docker login registry.camunda.cloud`
    * Enter your Camunda OKTA credentials if not logged in already
-2. Clone https://github.com/camunda/camunda-bpm-platform-ee
-3. Check out the tag of the release version without ee suffix (e. g. 7.13.0-alpha3)\
-   **Heads-up:** Having `master` checked out leads to building the latest snapshot
+2. Clone the repository
+   * Alpha: https://github.com/camunda/camunda-bpm-platform-ee
+   * Patch: https://github.com/camunda/camunda-bpm-platform-ee-maintenance
+3. Check out a branch (alpha = `master`, patch = respective maintenance branch: i.e., `7.10`, `7.11`, `7.12`)
 4. Navigate to the folder `qa/docker` in the terminal
 5. Run `mvn versions:update-parent -DparentVersion=<CAMUNDA VERSION WITH EE SUFFIX>`
    * Version example: `7.13.0-alpha3-ee`
