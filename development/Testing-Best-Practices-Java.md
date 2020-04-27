@@ -6,6 +6,20 @@ Intro:
 Best Practices:
 
 * A test should include `//given`, `//when`, `//then` comments, so it is easy to see what is tested
+```java
+@Test
+public void testFoo() {
+  // given
+  <test setup>
+  
+  // when
+  <trigger logic under test>
+  
+  // then
+  <fetch result>  
+  <assert result>
+}
+```
 * A test should not test multiple things, i.e. there can be only one when part
 * The when part only triggers the code under test; Any lookup for results goes into the then part
 * Query tests should assert the results, not only the count of results (exception: the query returns all results)
