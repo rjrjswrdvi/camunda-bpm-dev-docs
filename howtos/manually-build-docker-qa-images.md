@@ -20,7 +20,8 @@ Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
 5. Run `mvn versions:update-parent -DparentVersion=<CAMUNDA VERSION WITH EE SUFFIX>`
    * Version example: `7.13.0-alpha3-ee`
    * The step is optional for the master snapshot
-6. Run `mvn clean install`
+   * In case of problems change version in pom.xml
+6. Run `mvn clean install -Pbuild-docker-qa`
    * If you prefer to do a dry-run first, you can use `-Ddocker.skip.push` to skip pushing the images to the Docker registry
 7. When the command has been successfully completed, check if the images are available (login with your Camunda OKTA credentials):
      * https://registry.camunda.cloud/harbor/projects/6/repositories/team-cambpm%2Fweblogic12r1
