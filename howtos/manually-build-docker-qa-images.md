@@ -18,10 +18,18 @@ Find all the details here: https://confluence.camunda.com/display/ADMIN/VPN
    * Patch: https://github.com/camunda/camunda-bpm-platform-ee-maintenance
 3. Check out a branch (alpha = `master`, patch = respective maintenance branch: i.e., `7.10`, `7.11`, `7.12`)
 4. Navigate to the folder `qa/docker` in the terminal
-5. Run `mvn versions:update-parent -DparentVersion=<CAMUNDA VERSION WITH EE SUFFIX>`
+5. Set the version in the `pom.xml` to the one you want to build
    * Version example: `7.13.0-alpha3-ee`
    * The step is optional for the master snapshot
-   * In case of problems change version in pom.xml
+   * ```diff --- a/qa/docker/pom.xml
+     +++ b/qa/docker/pom.xml
+        <parent>
+          <groupId>org.camunda.bpm.qa</groupId>
+          <artifactId>camunda-qa-ee</artifactId>
+     -    <version>7.10.18-SNAPSHOT</version>
+     +    <version>7.10.18-ee</version>
+        </parent>
+     ```
 6. Run `mvn clean install -Pbuild-docker-qa`
    * If you prefer to do a dry-run first, you can use `-Ddocker.skip.push` to skip pushing the images to the Docker registry
 7. When the command has been successfully completed, check if the images are available (login with your Camunda OKTA credentials):
