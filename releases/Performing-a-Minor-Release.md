@@ -86,6 +86,7 @@ This is done on the release day:
 
 - [ ] [Camunda BPM Platform code changes](#camunda-bpm-platform-code-changes) (*)
 - [ ] [Camunda CI tasks](#ci-tasks) (INFRA)
+- [ ] [Pick Alpha Release Manager](#pick-alpha-release-manager)
 
 ***
 
@@ -957,3 +958,14 @@ See this [commit](https://github.com/camunda/camunda-bpm-platform/commit/df0df16
 
 Create an issue for INFRA to provide support for the new minor version. Following [steps](https://github.com/camunda-ci/jenkins-job-dsl-seed-jobs/blob/master/docs/NewCamBPMVersion.md) have to be completed.
   * A new (7.X) branch needs to be created on the maintenance repo through the https://release.cambpm.camunda.cloud/job/maintenance/job/RELEASE-create-camunda-bpm-maintenance-branch/ job
+
+## Pick Alpha Release Manager
+
+The Release Manager Rotation is Round-Robin based on the [Community Worker Rotation](https://app.camunda.com/confluence/display/camBPM/Community+Worker+Process#CommunityWorkerProcess-CommunityWorkerRotation:).
+
+After the Release Manager is picked, update the `CamBPM Release Manager` user group in Slack. To find it, go to:
+1. `People` (in the left side-panel)
+2. `User groups` tab
+3. Locate and click on `CamBPM Release Manager`
+4. Click on `Edit Members`
+5. Remove the current Release Manager and add the new one.

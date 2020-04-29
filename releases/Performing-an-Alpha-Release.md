@@ -600,3 +600,10 @@ In the afternoon, present the release remotely via Zoom. If you like you can mod
 # Pick Next Release Manager
 
 The Release Manager Rotation is Round-Robin based on the [Community Worker Rotation](https://app.camunda.com/confluence/display/camBPM/Community+Worker+Process#CommunityWorkerProcess-CommunityWorkerRotation:).
+
+After the Release Manager is picked, update the `CamBPM Release Manager` user group in Slack. To find it, go to:
+1. `People` (in the left side-panel)
+2. `User groups` tab
+3. Locate and click on `CamBPM Release Manager`
+4. Click on `Edit Members`
+5. Remove the current Release Manager and add the new one.
