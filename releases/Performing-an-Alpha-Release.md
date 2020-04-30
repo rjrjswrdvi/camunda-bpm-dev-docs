@@ -43,7 +43,7 @@ This guide contains links and filters using placeholders. Please replace the pla
 Decide upon the exact date for the release day. How to find the release day:
 * it is always a Friday, except if the Friday is a holiday, then it's the day before (Thursday) and so on.
 * take the last day of the month and find the Friday that is "closest" to that date. Closest means that you have to count the number of days from the last day of the month to the previous/next Friday.
-* Ask the optimize, modeler and infrastructure teams if they want to participate in the release presentation
+* Ask the optimize, modeler and infrastructure teams if they want to participate in the release presentation. Share a google docs presentation with them in case they want to participate.
 
 ## **Release presentation**
 The release presentation is done remotely via Zoom. Create a Zoom meeting for the presentation. Ask Backoffice for a pro account.
