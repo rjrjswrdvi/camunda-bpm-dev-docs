@@ -94,7 +94,16 @@ This is done on the release day:
 
 ## Request the new license book
 
-Ask Ulrike to create the new license book. When received, put it to [`distro/license-book`](https://github.com/camunda/camunda-bpm-platform/tree/master/distro/license-book) folder. Then update the nexus link to the license book in the [docs](https://docs.camunda.org/manual/develop/introduction/licenses/#third-party-libraries).
+At latest two weeks before the release, create a CAM ticket to update the license book and assign it to the Tech Lead. The Tech Lead should then perform the following steps:
+
+1. Announce to the team that any subsequent dependency updates until code freeze must be synced with Tech Lead
+1. Determine all depencies with missing licensing information. Check the build artifact `new-dependencies.txt` of https://ci.cambpm.camunda.cloud/job/7.13/job/7.13-EE-platform-DISTRO/ (replace with appropriate version).
+1. Contribute the project information for every dependency where it is missing. Check the readme of https://github.com/camunda/camunda-bpm-platform-ee/tree/master/distro/license-book-generator for how to do that.
+1. Send a list of all libraries with missing licensing information and their project homes to Legal
+1. Once Legal provides the missing licensing information, update it in the license-book-generator sources
+1. Verify that the generated license book is now complete
+1. Update the license book in the sources at https://github.com/camunda/camunda-bpm-platform/tree/master/distro/license-book
+1. Update the Nexus link to the license book in the [docs](https://docs.camunda.org/manual/develop/introduction/licenses/#third-party-libraries)
 
 ## Prepare test plan
 
