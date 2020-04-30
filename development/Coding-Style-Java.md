@@ -11,8 +11,8 @@
 * Indentation is two spaces
 * Indentation for chaining method calls on new lines is four spaces
 * No trailing whitespace; no whitespace on empty lines
-* Lines of code must not exceed 100 characters
-* If lines with method signatures exceed 100 characters, each parameter must be on a new line
+* Lines of code must not exceed 120 characters
+* If lines with method signatures exceed 120 characters, each parameter must be on a new line
 * Bracket placement: [Kernighan and Ritchie style](https://en.wikipedia.org/wiki/Indentation_style#K&R_style) ("Egyptian brackets") for non-empty blocks and block-like constructs; plus: opening brackets of classes and methods go on the same line as the declaration
 ```java
 return new MyClass() {
