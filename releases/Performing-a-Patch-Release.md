@@ -185,6 +185,8 @@ we have published the following patch release(s):
 
 * X.X.X  (Version + Release Note)
 
+Please inform our customers.
+
 Best,
 XX
 ```
