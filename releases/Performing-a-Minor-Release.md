@@ -2,7 +2,7 @@
 
 Steps marked with (*) are be performed by the "Release Manager" or a member of the Runtime Team.
 
-PM = Product Manager (Daniel Meyer)
+PM = Product Manager (Andre Bappert)
 
 EM = Engineering Manager (Roman Smirnov)
 
