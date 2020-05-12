@@ -8,7 +8,7 @@ Best Practices:
 * A test should include `//given`, `//when`, `//then` comments, so it is easy to see what is tested
 ```java
 @Test
-public void testFoo() {
+public void shouldCheckFoo() {
   // given
   <test setup>
   
@@ -20,6 +20,9 @@ public void testFoo() {
   <assert result>
 }
 ```
+* Naming Conventions
+  * [Camel case](https://en.wikipedia.org/wiki/Camel_case)
+  * JUnit 4 tests are prefixed with "should", e.g. `shouldCheckComponentAvailability()`
 * A test should not test multiple things, i.e. there can be only one when part
 * The when part only triggers the code under test; Any lookup for results goes into the then part
 * Query tests should assert the results, not only the count of results (exception: the query returns all results)
