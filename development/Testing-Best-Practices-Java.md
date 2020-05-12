@@ -23,6 +23,14 @@ public void testFoo() {
 * A test should not test multiple things, i.e. there can be only one when part
 * The when part only triggers the code under test; Any lookup for results goes into the then part
 * Query tests should assert the results, not only the count of results (exception: the query returns all results)
+  * Relevant for all types of query tests (e.g., also for authorization query tests, etc.)
+  * Count-based query tests are error-prone since they don't verify that the correct data is retrieved
+  * The following AssertJ assertion verifies the right count as well as the correct data: 
+    ```java 
+    assertThat(query.list())
+        .extracting("taskId")
+        .containsExactlyInAnyOrder("taskIdOne", "taskIdTwo");
+    ```
 * If you need to scroll down to see the whole test, consider to break it down
 * A test should always have at least one assertion
 * Use fluent AssertJ assertions
