@@ -94,14 +94,15 @@ For this you can use the following script:
 ```sh
 #!/bin/bash
 
-git tag -l -n1 | while read tag; do
-    name=$(echo $tag | cut -d " " -f 1)
-    msg=$(echo $tag | cut -d " " -f 2-)
-    echo "$name | $msg"
-    echo -n "Which commit hash to use: "
-    read hash < /dev/tty
-    git tag -f -a $name -m "$msg" $hash
-done
+    git tag -l -n1 | while read -r tag; do
+        name=$(echo "${tag}" | tr -s ' ' | cut -d ' ' -f 1)
+        msg=$(echo "${tag}" | tr -s ' ' | cut -d ' ' -f 2-)
+        hash=$(git rev-list --pretty=oneline HEAD | grep "${msg}" | cut -d ' ' -f 1)
+
+        if [ -n "${hash}" ]; then
+            git tag -f -a "${name}" -m "${msg}" "${hash}"
+        fi
+    done
 ```
 The script asks for each tag after a corresponding commit hash.
 So each tag can be reassigned to a new commit. The old messages are reused.
