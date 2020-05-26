@@ -253,47 +253,17 @@ Enable Groovy Script Engine if necessary
 
 ##### Using the Invoice example in Spring Boot
 
-Add the Invoice example as a dependency in the `pom.xml`:
+The Spring Boot Starter - Invoice example integrates the Invoice application with the Camunda Spring Boot Starter. It
+can be found at [https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-invoice](https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-invoice).
 
-```xml
-<dependency>
-  <groupId>org.camunda.bpm.example</groupId>
-  <artifactId>camunda-example-invoice</artifactId>
-  <version>${camunda.version}</version>
-  <classifier>classes</classifier>
-  <scope>compile</scope>
-</dependency>
-```
+The example adds the necessary JDBC dependencies, as well as the `application.yaml` configuration to run on one of
+the Camunda-supported databases. By default, H2 will be used, while the rest can be un-commented. 
 
-Then add the following code to the `@SpringBootApplication` annotated class:
-
-```java
-  @Autowired
-  protected ProcessEngine processEngine;
-
-  protected InvoiceProcessApplication invoicePa = new InvoiceProcessApplication();
-
-  @PostConstruct
-  public void deployInvoice() {
-    ClassLoader classLoader = invoicePa.getClass().getClassLoader();
-
-    processEngine.getRepositoryService()
-        .createDeployment()
-        .addInputStream("invoice.v1.bpmn", classLoader.getResourceAsStream("invoice.v1.bpmn"))
-        .addInputStream("reviewInvoice.bpmn", classLoader.getResourceAsStream("reviewInvoice.bpmn"))
-        .deploy();
-  }
-
-  @EventListener
-  public void onPostDeploy(PostDeployEvent event) {
-    invoicePa.startFirstProcess(event.getProcessEngine());
-  }
-```
-
-> Note: the Invoice example will not create the expected Tasklist filters. If necessary, these should be created 
-> manually through the `application.properties` file.
+> Note: the Spring Boot Starter Invoice example will not create the expected Tasklist filters or additional users. If 
+> necessary, these should be created manually through the `application.properties` and the Admin Webapp file.
 
 ### Release Specific Test
+
 According to the implemented feature topics choose some of the new feature to to test them manually.
 If you don't know wich fixes are worth the effort use the following rule of thumb:
 * Prefer UI features as the test coverage is usually lower compared to backend features. Use different browser for the test.
